@@ -1,35 +1,13 @@
-pipeline {
+pipeline{
     agent any
-
     stages{
-        stage("stage 1 "){
+        stage("build docker image"){
             steps{
-                sh 'echo this is stage 1'
-                sh 'date' 
-                sh 'pwd'
-            }
-        }
-        stage("stage 2 "){
-            steps{
-                sh 'echo this is stage 2'
-                sh 'echo hodi> file1.txt'
-            }
-        }
-        stage("stage 3 "){
-            steps{
-                sh 'echo this is stage 3'
+                echo '========= building docker image ========='
+                sh 'docker build -t app-1:v1 .'
+                sh "docker images | grep -i app-1"
 
-            }
-        }
-        stage("Script "){
-            steps{
-                sh 'pwd'
-                sh "ls -lah"
-                sh "chmod +x ./pipeline-1/test.sh"
-                sh "./pipeline-1/test.sh"
-                cleanWs()
             }
         }
     }
-
 }
