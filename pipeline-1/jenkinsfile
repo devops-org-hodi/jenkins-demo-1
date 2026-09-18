@@ -4,14 +4,14 @@ pipeline{
         IMG_NAME = "app-1"
         IMG_TAG = "${BUILD_NUMBER}"
         CODE_DIR = "pipeline-1"
-        IMAGE-FULL-NAME = "{IMG_NAME}:v0.{IMG_TAG}"
+        IMAGE_FULL_NAME = "{IMG_NAME}:v0.{IMG_TAG}"
     }
     stages{
         stage("build docker image"){
             steps{
                 sh 'ls -lah'
                 echo '========= building docker image ========='
-                sh "docker build -t {IMAGE-FULL-NAME} ./{CODE_DIR}"
+                sh "docker build -t {IMAGE_FULL_NAME} ./{CODE_DIR}"
                 echo "========= docker image built successfully  {IMAGE-FULL-NAME}========="
                 sh "docker images | grep -i {IMG_NAME}"
             }
