@@ -1,13 +1,19 @@
 pipeline{
     agent any
+    environment{
+        IMG_NAME = "app-1"
+        IMG_TAG = "${BUILD_NUMBER}"
+        CODE_DIR = "pipeline-1"
+        IMAGE-FULL-NAME =" {IMG_NAME}:v0.{IMG_TAG}"
+    }
     stages{
         stage("build docker image"){
             steps{
                 sh 'ls -lah'
                 echo '========= building docker image ========='
-                sh 'docker build -t app-1:v1 ./pipeline-1'
-                sh "docker images | grep -i app-1"
-
+                sh "docker build -t {IMAGE-FULL-NAME} ./{CODE_DIR}"
+                ECHO "========= docker image built successfully  {IMAGE-FULL-NAME}========="
+                sh "docker images | grep -i {IMG_NAME}"
             }
         }
     }
