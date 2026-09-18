@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    stages{
+        stage("stage 1 "){
+            steps{
+                sh 'echo this is stage 1'
+            }
+        }
+        stage("stage 2 "){
+            steps{
+                sh 'echo this is stage 2'
+                sh 'figlet hodi'
+            }
+        }
+        stage("stage 3 "){
+            steps{
+                sh 'echo this is stage 3'
+            }
+        }
+        stage("stage 4 "){
+            steps{
+                sh 'echo this is stage 4'
+            }
+        }
+    }
+
+}
