@@ -21,9 +21,11 @@ pipeline {
 
             }
         }
-        stage("stage 4 "){
+        stage("Script "){
             steps{
-                sh 'echo this is stage 4'
+                sh "chmod +x ./pipeline-1/test.sh"
+                sh "./pipeline-1/test.sh"
+                cleanWs()
             }
         }
     }
