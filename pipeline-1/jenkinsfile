@@ -23,6 +23,8 @@ pipeline {
         }
         stage("Script "){
             steps{
+                sh 'pwd'
+                sh "ls -lah"
                 sh "chmod +x ./pipeline-1/test.sh"
                 sh "./pipeline-1/test.sh"
                 cleanWs()
