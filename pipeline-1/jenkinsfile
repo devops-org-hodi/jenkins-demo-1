@@ -28,9 +28,23 @@ pipeline{
             }
         }
         stage("test"){
-            steps{
-                sh " curl ${CONTAINER_NAME}:5000/hello"
+            parallel{
+                stage("sanity test"){
+                    steps{
+                    sh "curl ${CONTAINER_NAME}:5000/hello"
+                    }
+                }
+                stage("unit test"){steps{
+                    sh "curl ${CONTAINER_NAME}:5000/hello"
+                }}
+                stage("integration test"){steps{
+                    sh "curl ${CONTAINER_NAME}:5000/hello"
+                }}
+                stage("stress"){steps{
+                    sh" curl ${CONTAINER_NAME}:5000/hello "
+                }}
             }
+            
         }
     }
     post{
