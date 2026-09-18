@@ -4,7 +4,7 @@ pipeline{
         IMG_NAME = "app-1"
         IMG_TAG = "${BUILD_NUMBER}"
         CODE_DIR = "pipeline-1"
-        IMAGE-FULL-NAME =" {IMG_NAME}:v0.{IMG_TAG}"
+        IMAGE-FULL-NAME = "{IMG_NAME}:v0.{IMG_TAG}"
     }
     stages{
         stage("build docker image"){
