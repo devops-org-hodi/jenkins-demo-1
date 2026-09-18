@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("build docker image"){
             steps{
-                sh 'pwd'
+                sh 'pwd -lah'
                 echo '========= building docker image ========='
                 sh 'docker build -t app-1:v1 .'
                 sh "docker images | grep -i app-1"
