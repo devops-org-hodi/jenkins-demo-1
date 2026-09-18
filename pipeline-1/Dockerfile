@@ -11,3 +11,4 @@ COPY ./src/main.py .
 EXPOSE 5000
 
 CMD ["python3","main.py"]
+# file
