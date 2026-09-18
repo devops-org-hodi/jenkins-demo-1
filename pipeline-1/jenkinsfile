@@ -12,7 +12,7 @@ pipeline{
                 sh 'ls -lah'
                 echo '========= building docker image ========='
                 sh "docker build -t {IMAGE_FULL_NAME} ./{CODE_DIR}"
-                echo "========= docker image built successfully  {IMAGE-FULL-NAME}========="
+                echo "========= docker image built successfully  {IMAGE_FULL_NAME}========="
                 sh "docker images | grep -i {IMG_NAME}"
             }
         }
