@@ -5,17 +5,20 @@ pipeline {
         stage("stage 1 "){
             steps{
                 sh 'echo this is stage 1'
+                sh 'date' 
+                sh 'pwd'
             }
         }
         stage("stage 2 "){
             steps{
                 sh 'echo this is stage 2'
-                sh 'figlet hodi'
+                sh 'echo hodi> file1.txt'
             }
         }
         stage("stage 3 "){
             steps{
                 sh 'echo this is stage 3'
+                sh 'top > top.ini'
             }
         }
         stage("stage 4 "){
